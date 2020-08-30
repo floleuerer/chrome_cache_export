@@ -22,15 +22,15 @@ If using Chromium the cache_path has to be set. Default is using Google Chrome p
 # only export cached files where the domain contains the following string
 domain = ''
 
-# will use default path if empty
+# location of the cache - will use default path if empty
 cache_path = ''
 
-# path
-export_path = Path('export')
+# export path
+export_path = 'export'
 
 # overwrite existing?
 overwrite_existing = False
 
-# get and print a list of all domains in the cache
-print_domains = True
+# get and print a list of all domains in the cache no files will be exported!!!
+print_domains = False
 ```

@@ -8,10 +8,10 @@ from pathlib import Path
 # only export cached files where the domain contains the following string
 domain = ''
 
-# will use default path if empty
+# location of the cache - will use default path if empty
 cache_path = ''
 
-# path
+# export path
 export_path = 'export'
 
 # overwrite existing?
