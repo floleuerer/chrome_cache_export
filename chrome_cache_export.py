@@ -3,22 +3,20 @@ import os
 import platform
 import shutil
 import io
+import yaml
 from pathlib import Path
 
-# only export cached files where the domain contains the following string
-domain = ''
 
-# location of the cache - will use default path if empty
-cache_path = ''
+with open(r'config.yml') as file:
+    config = yaml.load(file, Loader=yaml.FullLoader)
 
-# export path
-export_path = 'export'
 
-# overwrite existing?
-overwrite_existing = False
 
-# get and print a list of all domains in the cache no files will be exported!!!
-print_domains = False
+domain = config['domain']
+cache_path = config['cache_path']
+export_path = config['export_path']
+overwrite_existing = config['overwrite_existing']
+print_domains = config['print_domains']
 
 
 
@@ -66,6 +64,7 @@ if print_domains:
                 print(f'- {d}')
 else:
     # Export
+    export_path = Path(export_path)
     idx = CacheIndex(cache_path)
     idx.entries()
     entries = [entry for entry in idx.files()]
@@ -77,19 +76,15 @@ else:
             if print_domains:
                 domains.add(d)
 
-            if domain in d:
-                print(ce.url)
-                
-                file_name = ce.url.split('/')[-1].split('?')[0]
-                print('fn', file_name)
-                export_path = Path(export_path)
+            if domain in d:         
+                file_name = ce.url.split('/')[-1].split('?')[0]                
                 file_path = export_path/file_name
                 if not os.path.exists(file_path) or overwrite_existing:
                     try:
                         shutil.copy(str(e),file_path)
                         with io.open(file_path, 'wb') as file:
                             file.write(ce.data)
-                        f'{file_name} saved to {export_path}'
+                        print(f'{file_name} saved - path: {export_path}')
                     except Exception as e:
                         print(f'Error: {e}')
                 else:

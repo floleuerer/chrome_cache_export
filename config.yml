@@ -1,0 +1,14 @@
+# only export cached files where the domain contains the following string
+domain: 'otto.de'
+
+# location of the cache - will use default path if empty
+cache_path: ''
+
+# export path
+export_path: 'export/'
+
+# overwrite existing?
+overwrite_existing: True
+
+# get and print a list of all domains in the cache no files will be exported!!!
+print_domains: False
