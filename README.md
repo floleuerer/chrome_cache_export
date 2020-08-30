@@ -3,8 +3,9 @@ Python script to export files of the Google Chrome Cache (also tested with Chrom
 
 ## Clone repo
 Clone the repo with Submodule.
-
+```
 git clone --recurse-submodules https://github.com/floleuerer/chrome_cache_export.git
+```
 
 ## Usage
 
