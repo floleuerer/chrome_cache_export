@@ -1,0 +1,3 @@
+[submodule "ChromiumCacheExplorer"]
+	path = ChromiumCacheExplorer
+	url = https://github.com/kakkoko/ChromiumCacheExplorer.git
