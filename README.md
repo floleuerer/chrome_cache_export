@@ -7,6 +7,14 @@ Clone the repo with Submodule.
 git clone --recurse-submodules https://github.com/floleuerer/chrome_cache_export.git
 ```
 
+## Requirements
+
+Requires `Python >= 3.6` and `pyyaml`.
+
+```
+pip install pyyaml
+```
+
 ## Usage
 
 ### Export all cached Files
